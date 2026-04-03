@@ -1,4 +1,4 @@
-# DevConnect Pro Portfolio
+# MyPortfolio
 
 A professional, production-ready portfolio template for Full-Stack Developers.
 
