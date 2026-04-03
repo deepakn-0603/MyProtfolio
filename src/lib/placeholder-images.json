@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "project-task",
+      "description": "Task management dashboard interface",
+      "imageUrl": "https://picsum.photos/seed/taskmgr/800/600",
+      "imageHint": "dashboard software"
+    },
+    {
+      "id": "project-auth",
+      "description": "Secure authentication mobile app screen",
+      "imageUrl": "https://picsum.photos/seed/authsystem/800/600",
+      "imageHint": "security lock"
+    },
+    {
+      "id": "project-docker",
+      "description": "DevOps infrastructure diagram with Docker logos",
+      "imageUrl": "https://picsum.photos/seed/dockerdev/800/600",
+      "imageHint": "server cloud"
+    },
+    {
+      "id": "project-ai",
+      "description": "AI generator interface with floating particles",
+      "imageUrl": "https://picsum.photos/seed/aigen/800/600",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "avatar",
+      "description": "Professional developer portrait",
+      "imageUrl": "https://picsum.photos/seed/devprofile/400/400",
+      "imageHint": "professional person"
+    }
+  ]
 }
