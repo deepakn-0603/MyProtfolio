@@ -11,10 +11,10 @@ import { AIAssistant } from "@/components/AIAssistant";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
-  const [year, setYear] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setYear(new Date().getFullYear());
+    setMounted(true);
   }, []);
 
   return (
@@ -44,7 +44,7 @@ export default function Home() {
 
       <footer className="py-12 border-t border-border bg-white text-center">
         <p className="text-muted-foreground text-sm">
-          © {year || "..."} DevConnectPro. Built with Next.js, Django Principles, and AI.
+          © {mounted ? new Date().getFullYear() : "..."} DevConnectPro. Built with Next.js, Django Principles, and AI.
         </p>
       </footer>
 

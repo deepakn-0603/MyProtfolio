@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'DevConnect Pro | Alex Thompson Portfolio',
-  description: 'Professional portfolio of Alex Thompson, a Full-Stack Developer specialized in Django, React, and DevOps.',
+  title: 'DevConnect Pro | Deepak N Portfolio',
+  description: 'Professional portfolio of Deepak N, a Software Engineer / DevOps Engineer specialized in Django, React, and AWS.',
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

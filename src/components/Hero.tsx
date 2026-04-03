@@ -52,7 +52,7 @@ export function Hero() {
           <div className="absolute inset-0 rounded-3xl bg-accent/20 rotate-6 translate-x-4 translate-y-4" />
           <div className="absolute inset-0 rounded-3xl bg-primary/10 -rotate-3" />
           <Image
-            src={avatar?.imageUrl || ""}
+            src={avatar?.imageUrl || "https://picsum.photos/seed/devprofile/400/400"}
             alt={USER_INFO.name}
             width={400}
             height={400}
