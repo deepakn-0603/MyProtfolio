@@ -92,11 +92,11 @@ export function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider">Name</label>
-                <Input placeholder="John Doe" required />
+                <Input placeholder="Deepak" required />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-bold uppercase tracking-wider">Email</label>
-                <Input type="email" placeholder="john@example.com" required />
+                <Input type="email" placeholder="deepak@example.com" required />
               </div>
             </div>
             <div className="space-y-2">

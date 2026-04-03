@@ -48,7 +48,7 @@ export function AIAssistant() {
   return (
     <section className="section-padding bg-accent/5">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent font-bold text-xs uppercase mb-4">
             <Sparkles className="w-3 h-3" /> Portfolio Tools
           </div>
@@ -56,9 +56,9 @@ export function AIAssistant() {
           <p className="text-muted-foreground">
             Struggling to describe your work? Use my custom-built AI tool to generate professional, impactful project summaries.
           </p>
-        </div>
+        </div> */}
 
-        <Card className="white-card border-accent/20">
+        {/* <Card className="white-card border-accent/20">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
                Generate compelling descriptions
@@ -122,7 +122,7 @@ export function AIAssistant() {
               </div>
             )}
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
     </section>
   );
