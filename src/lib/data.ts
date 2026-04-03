@@ -24,17 +24,22 @@ export interface Experience {
   description: string[];
 }
 
+export interface SocialLinks {
+  github?: string;
+  linkedin?: string;
+  twitter?: string;
+}
+
 export const USER_INFO = {
-  name: "Alex Thompson", // REPLACE WITH REAL NAME
-  role: "Full-Stack Developer", // REPLACE WITH REAL ROLE
-  bio: "Full-Stack Developer with over 1 year of professional experience building scalable web applications. Specialized in Python/Django backends and React frontends, with a strong foundation in SQL databases and automated deployment pipelines.",
-  location: "San Francisco, CA",
-  email: "alex.thompson@example.com",
+  name: "Deepak N",
+  role: "Software Engineer / DevOps Engineer",
+  bio: "Software Engineer with 1+ year of experience in backend development and DevOps. Skilled in building scalable REST APIs using Python and Django, with working knowledge of React.js. Experienced in AWS cloud services, Docker, Kubernetes, CI/CD pipelines, and infrastructure automation using Terraform and Ansible. Strong focus on system reliability, monitoring, and automation.",
+  location: "Bangalore, India",
+  email: "deepak.n.0603@gmail.com",
   social: {
-    github: "https://github.com/alex-thompson",
-    linkedin: "https://linkedin.com/in/alex-thompson",
-    twitter: "https://twitter.com/alexdev"
-  }
+    github: "https://github.com/deepakn-0603",
+    linkedin: "https://linkedin.com/in/deepak-n",
+  } as SocialLinks
 };
 
 export const SKILLS: Skill[] = [
@@ -59,13 +64,13 @@ export const SKILLS: Skill[] = [
 export const PROJECTS: Project[] = [
   {
     id: "1",
-    title: "TaskFlow Manager",
-    description: "Enterprise task management solution built with Django and React.",
-    longDescription: "A high-performance task management application featuring real-time updates via WebSockets, complex state management using Redux Toolkit, and a modular Django backend with custom middleware for audit logging.",
-    technologies: ["React", "Django", "PostgreSQL", "WebSockets"],
-    imageUrl: PlaceHolderImages.find(img => img.id === "project-task")?.imageUrl || "",
-    liveUrl: "https://example.com/taskflow",
-    githubUrl: "https://github.com/alex/taskflow"
+    title: "Heart Wise",
+    description: "AI-powered health monitoring and heart disease prediction platform.",
+    longDescription: "Heart Wise is a full-stack health monitoring application designed to predict and analyze heart-related conditions using machine learning models. The platform allows users to input health parameters and receive predictive insights, while also providing a user-friendly dashboard for tracking health metrics. Built with a scalable backend using Django and integrated with modern DevOps practices including containerization, CI/CD pipelines, and cloud deployment.",
+    technologies: ["Python", "Django", "Machine Learning", "React", "Docker", "AWS", "CI/CD"],
+    imageUrl: PlaceHolderImages.find(img => img.id === "project-heartwise")?.imageUrl || "",
+    liveUrl: "",
+    githubUrl: "https://github.com/deepakn-0603/Heart-wise"
   },
   {
     id: "2",

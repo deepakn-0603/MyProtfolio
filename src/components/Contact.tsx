@@ -25,6 +25,12 @@ export function Contact() {
     }, 1500);
   };
 
+  const socialItems = [
+    { icon: <Github />, link: USER_INFO.social.github },
+    { icon: <Linkedin />, link: USER_INFO.social.linkedin },
+    { icon: <Twitter />, link: USER_INFO.social.twitter },
+  ].filter(item => item.link);
+
   return (
     <section id="contact" className="section-padding">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -61,25 +67,24 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-border">
-            <p className="font-bold mb-4">Find me on</p>
-            <div className="flex gap-4">
-              {[
-                { icon: <Github />, link: USER_INFO.social.github },
-                { icon: <Linkedin />, link: USER_INFO.social.linkedin },
-                { icon: <Twitter />, link: USER_INFO.social.twitter },
-              ].map((social, i) => (
-                <a
-                  key={i}
-                  href={social.link}
-                  target="_blank"
-                  className="w-12 h-12 rounded-xl bg-white shadow-sm border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-accent transition-all duration-300"
-                >
-                  {social.icon}
-                </a>
-              ))}
+          {socialItems.length > 0 && (
+            <div className="pt-8 border-t border-border">
+              <p className="font-bold mb-4">Find me on</p>
+              <div className="flex gap-4">
+                {socialItems.map((social, i) => (
+                  <a
+                    key={i}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-xl bg-white shadow-sm border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-accent transition-all duration-300"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="white-card p-10">

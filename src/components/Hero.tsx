@@ -29,15 +29,21 @@ export function Hero() {
             View Projects <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
           <div className="flex items-center gap-4 px-4">
-            <Link href={USER_INFO.social.github} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
-              <Github className="w-6 h-6" />
-            </Link>
-            <Link href={USER_INFO.social.linkedin} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
-              <Linkedin className="w-6 h-6" />
-            </Link>
-            <Link href={USER_INFO.social.twitter} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
-              <Twitter className="w-6 h-6" />
-            </Link>
+            {USER_INFO.social.github && (
+              <Link href={USER_INFO.social.github} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+                <Github className="w-6 h-6" />
+              </Link>
+            )}
+            {USER_INFO.social.linkedin && (
+              <Link href={USER_INFO.social.linkedin} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin className="w-6 h-6" />
+              </Link>
+            )}
+            {USER_INFO.social.twitter && (
+              <Link href={USER_INFO.social.twitter} target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+                <Twitter className="w-6 h-6" />
+              </Link>
+            )}
           </div>
         </div>
       </div>

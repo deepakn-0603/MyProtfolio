@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { Skills } from "@/components/Skills";
@@ -8,6 +11,12 @@ import { AIAssistant } from "@/components/AIAssistant";
 import { Toaster } from "@/components/ui/toaster";
 
 export default function Home() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <main className="relative">
       <Navigation />
@@ -35,7 +44,7 @@ export default function Home() {
 
       <footer className="py-12 border-t border-border bg-white text-center">
         <p className="text-muted-foreground text-sm">
-          © {new Date().getFullYear()} DevConnectPro. Built with Next.js, Django Principles, and AI.
+          © {year || "..."} DevConnectPro. Built with Next.js, Django Principles, and AI.
         </p>
       </footer>
 

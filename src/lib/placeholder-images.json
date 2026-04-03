@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "project-heartwise",
+      "description": "Health monitoring dashboard for heart health",
+      "imageUrl": "https://picsum.photos/seed/heartwise/800/600",
+      "imageHint": "medical health"
+    },
+    {
       "id": "project-task",
       "description": "Task management dashboard interface",
       "imageUrl": "https://picsum.photos/seed/taskmgr/800/600",
