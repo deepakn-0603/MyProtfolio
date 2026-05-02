@@ -14,8 +14,8 @@ export function Hero() {
           Available for new opportunities
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
-          Hi, I&apos;m <span className="text-primary">{USER_INFO.name}</span>
-        </h1>
+        Hi , I&apos;m <span className="text-primary" style={{ fontSize: '3.7rem' }}>{USER_INFO.name}</span>
+          </h1>
         <p className="text-2xl md:text-3xl text-muted-foreground font-medium">
           {USER_INFO.role}
         </p>
@@ -52,9 +52,9 @@ export function Hero() {
           <div className="absolute inset-0 rounded-3xl bg-accent/20 rotate-6 translate-x-4 translate-y-4" />
           <div className="absolute inset-0 rounded-3xl bg-primary/10 -rotate-3" />
           <Image
-            src={avatar?.imageUrl || "https://picsum.photos/seed/devprofile/400/400"}
+            src="/images/photo.jpg"
             alt={USER_INFO.name}
-            width={400}
+            width={300}
             height={400}
             className="rounded-3xl object-cover relative z-10 shadow-xl border-4 border-white"
             data-ai-hint="professional headshot"

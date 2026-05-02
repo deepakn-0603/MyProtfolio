@@ -34,7 +34,7 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="font-headline text-xl font-bold text-primary">
-          My<span className="text-accent">Protfolio</span>
+          My<span className="text-accent">Portfolio</span>
         </Link>
 
         {/* Desktop Links */}

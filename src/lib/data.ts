@@ -33,7 +33,7 @@ export interface SocialLinks {
 export const USER_INFO = {
   name: "Deepak N",
   role: "Software Engineer / DevOps Engineer",
-  bio: "Software Engineer with 1+ year of experience in backend development and DevOps. Skilled in building scalable REST APIs using Python and Django, with working knowledge of React.js. Experienced in AWS cloud services, Docker, Kubernetes, CI/CD pipelines, and infrastructure automation using Terraform and Ansible. Strong focus on system reliability, monitoring, and automation.",
+  bio: "Software Engineer with experience progressing from Intern (Jan 2025 – Nov 2025) to Full-Time Engineer (Dec 2025 – Present). Skilled in building scalable REST APIs using Python and Django, with working knowledge of React.js. Experienced in AWS cloud services, Docker, Kubernetes, CI/CD pipelines, and infrastructure automation using Terraform and Ansible. Strong focus on system reliability, monitoring, and automation.",
   location: "Bangalore, India",
   email: "deepak.n.0603@gmail.com",
   social: {
@@ -55,6 +55,7 @@ export const SKILLS: Skill[] = [
   { name: "AWS (EC2/S3)", category: "DevOps" },
   { name: "GitHub Actions", category: "DevOps" },
   { name: "Kubernetes", category: "DevOps" },
+  { name: "Jenkins", category: "DevOps" },
   { name: "Git", category: "Tools" },
   { name: "Jira", category: "Tools" },
   { name: "Postman", category: "Tools" },
@@ -72,15 +73,15 @@ export const PROJECTS: Project[] = [
     liveUrl: "",
     githubUrl: "https://github.com/deepakn-0603/Heart-wise"
   },
-  // {
-  //   id: "2",
-  //   title: "SecureAuth Pro",
-  //   description: "Robust authentication system implementing MFA and OTP.",
-  //   longDescription: "An advanced authentication boilerplate implementing JWT, refresh tokens, and mobile-based OTP verification. Built with Django REST Framework and optimized for high-security environments.",
-  //   technologies: ["Python", "Django", "Redis", "Twilio API"],
-  //   imageUrl: PlaceHolderImages.find(img => img.id === "project-auth")?.imageUrl || "",
-  //   githubUrl: "https://github.com/alex/secureauth"
-  // },
+  {
+    id: "2",
+    title: "Portfolio Website",
+    description: "Modern, responsive portfolio showcasing projects, skills, and experience.",
+    longDescription: "A fully responsive and production-ready portfolio website built to highlight my experience as a full-stack developer. It includes dynamic project listings, categorized skills, and a professional experience section. Designed with a clean UI using React and integrated with scalable architecture practices. The application follows component-based design and is optimized for performance and maintainability.",
+    technologies: ["React", "JavaScript", "CSS", "REST API"],
+    imageUrl: "/images/portfolio.png",
+    githubUrl: "https://github.com/deepakn-0603/MyProtfolio.git"
+  }
   // {
   //   id: "3",
   //   title: "CloudDeploy Toolkit",
@@ -105,8 +106,8 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "exp1",
     role: "Software Engineer",
-    company: "Team Geek Soluction Pvt Ltd",
-    duration: "Jan 2025 - Present",
+    company: "Team Geek Solution Pvt Ltd",
+    duration: "Dec 2025 - Present",
     description: [
       "Developed and maintained scalable REST APIs using Python and Django to support cloud-based applications.",
       "Deployed and managed containerized and serverless applications on AWS (EC2, ECS, Lambda, S3, VPC) ensuring high availability.",
@@ -116,15 +117,17 @@ export const EXPERIENCES: Experience[] = [
       "Participated in incident management, including troubleshooting, root cause analysis (RCA), and system improvements."
     ]
   },
-  // {
-  //   id: "exp2",
-  //   role: "Junior Web Developer",
-  //   company: "BrightPath Tech",
-  //   duration: "June 2023 - Dec 2023",
-  //   description: [
-  //     "Developed responsive UI components using React and styled-components for a financial dashboard.",
-  //     "Integrated third-party APIs for real-time market data visualization using Recharts.",
-  //     "Collaborated with UX designers to implement pixel-perfect designs across all breakpoints."
-  //   ]
-  // }
+  {
+    id: "exp2",
+    role: "Technical Intern",
+    company: "Team Geek Solution Pvt Ltd",
+    duration: "Jan 2025 - Nov 2025",
+    description: [
+      "Assisted in developing REST APIs using Python and Django for backend services.",
+      "Supported deployment and testing of applications on AWS environments.",
+      "Worked with Docker containers and gained exposure to Kubernetes-based deployments.",
+      "Contributed to CI/CD pipeline setup and debugging using GitHub Actions.",
+      "Collaborated with senior engineers on debugging, testing, and performance improvements."
+    ]
+  }
 ];

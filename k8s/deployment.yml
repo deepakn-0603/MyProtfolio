@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-portfolio-deployment
+  namespace: default
+  labels:
+    app: portfolio
+
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+
+  selector:
+    matchLabels:
+      app: portfolio
+  
+  template:
+    metadata:
+      labels:
+        app: portfolio
+    spec:
+      serviceAccountName: my-portfolio-service-account
+      containers:
+        - name: portfolio
+          image: deepakn2000/my-portfolio:v1
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 3
+          volumeMounts:
+            - name: portfolio-storage
+              mountPath: /app/data
+      volumes:
+        - name: portfolio-storage
+          persistentVolumeClaim:
+            claimName: my-portfolio-pvc

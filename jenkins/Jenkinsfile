@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+
+    environment {
+        IMAGENAME = "deepakn2000/my-portfolio:${BUILD_NUMBER}"
+    }
+
+    stages {
+        stage('clone') {
+            steps {
+                git "https://github.com/deepakn-0603/MyProtfolio.git"
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t ${IMAGENAME} ."
+            }
+        }
+
+        stage('Login to DockerHub') {
+            steps {
+                withCredentials([string(credentialsId: 'dockerhub-password', variable: 'DOCKER_PASS')]) {
+                    sh 'echo $DOCKER_PASS | docker login -u deepakn2000 --password-stdin'
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                sh "docker push ${IMAGENAME}"
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl apply -f k8s/storageClass.yml'
+                sh 'kubectl apply -f k8s/pv.yml'
+                sh 'kubectl apply -f k8s/pvc.yml'
+                sh 'kubectl apply -f k8s/service-account.yml'
+                sh 'kubectl apply -f k8s/role.yml'
+                sh 'kubectl apply -f k8s/role-binding.yml'
+                sh 'kubectl apply -f k8s/deployment.yml'
+                sh 'kubectl apply -f k8s/service.yml'
+            }
+        }
+    }
+}

@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'DevConnect Pro | Deepak N Portfolio',
+  title: 'Deepak N Portfolio',
   description: 'Professional portfolio of Deepak N, a Software Engineer / DevOps Engineer specialized in Django, React, and AWS.',
 };
 
