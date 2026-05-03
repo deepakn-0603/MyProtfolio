@@ -44,7 +44,7 @@ export default function Home() {
 
       <footer className="py-12 border-t border-border bg-white text-center">
         <p className="text-muted-foreground text-sm">
-          © {mounted ? new Date().getFullYear() : "..."} DevConnectPro. Built with Next.js, Django Principles, and AI.
+          © {mounted ? new Date().getFullYear() : "..."} Deepak N. Built with Next.js, Django Principles, and AI.
         </p>
       </footer>
 

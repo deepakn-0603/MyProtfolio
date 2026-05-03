@@ -11,7 +11,7 @@ export interface Project {
   description: string;
   longDescription: string;
   technologies: string[];
-  imageUrl: string;
+  imageUrl: string[];
   liveUrl?: string;
   githubUrl?: string;
 }
@@ -38,7 +38,7 @@ export const USER_INFO = {
   email: "deepak.n.0603@gmail.com",
   social: {
     github: "https://github.com/deepakn-0603",
-    linkedin: "https://linkedin.com/in/deepak-n",
+    linkedin: "https://www.linkedin.com/in/deepak-n-5b255b269",
   } as SocialLinks
 };
 
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     description: "AI-powered health monitoring and heart disease prediction platform.",
     longDescription: "Heart Wise is a full-stack health monitoring application designed to predict and analyze heart-related conditions using machine learning models. The platform allows users to input health parameters and receive predictive insights, while also providing a user-friendly dashboard for tracking health metrics. Built with a scalable backend using Django and integrated with modern DevOps practices including containerization, CI/CD pipelines, and cloud deployment.",
     technologies: ["Python", "Django", "Machine Learning", "React", "Docker", "AWS", "CI/CD"],
-    imageUrl: PlaceHolderImages.find(img => img.id === "project-heartwise")?.imageUrl || "",
+    imageUrl: ["/images/heart-wise-A.png", "/images/heart-wise-B.png"],
     liveUrl: "",
     githubUrl: "https://github.com/deepakn-0603/Heart-wise"
   },
@@ -78,9 +78,10 @@ export const PROJECTS: Project[] = [
     title: "Portfolio Website",
     description: "Modern, responsive portfolio showcasing projects, skills, and experience.",
     longDescription: "A fully responsive and production-ready portfolio website built to highlight my experience as a full-stack developer. It includes dynamic project listings, categorized skills, and a professional experience section. Designed with a clean UI using React and integrated with scalable architecture practices. The application follows component-based design and is optimized for performance and maintainability.",
-    technologies: ["React", "JavaScript", "CSS", "REST API"],
-    imageUrl: "/images/portfolio.png",
-    githubUrl: "https://github.com/deepakn-0603/MyProtfolio.git"
+    technologies: ["React", "JavaScript", "CSS", "REST API", "Next js"],
+    imageUrl: ["/images/portfolio-A.png", "/images/portfolio-B.png", "/images/portfolio-C.png"],
+    githubUrl: "https://github.com/deepakn-0603/MyProtfolio.git",
+    liveUrl: "https://deepak-n-portfolio.vercel.app/"
   }
   // {
   //   id: "3",
