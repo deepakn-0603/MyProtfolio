@@ -48,8 +48,5 @@ The easiest way to deploy is using **Vercel**:
 3. Add your `GOOGLE_GENAI_API_KEY` to the Environment Variables.
 4. Deploy.
 
-## Backend (Mock API)
-The application currently uses a structured data layer in `src/lib/data.ts` to simulate a backend API. This ensures fast performance and easy static generation while keeping the code modular for a future migration to a real Django REST Framework backend if desired.
-
 ## AI Content Assistant
 The "AI Project Copywriter" section demonstrates your ability to integrate LLMs into production apps. It uses Genkit flows located in `src/ai/flows`.
