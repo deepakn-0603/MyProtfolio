@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
     longDescription: "Heart Wise is a full-stack health monitoring application designed to predict and analyze heart-related conditions using machine learning models. The platform allows users to input health parameters and receive predictive insights, while also providing a user-friendly dashboard for tracking health metrics. Built with a scalable backend using Django and integrated with modern DevOps practices including containerization, CI/CD pipelines, and cloud deployment.",
     technologies: ["Python", "Django", "Machine Learning", "React", "Docker", "AWS", "CI/CD"],
     imageUrl: ["/images/heart-wise-A.png", "/images/heart-wise-B.png"],
-    liveUrl: "",
+    liveUrl: "https://heart-wise-eight.vercel.app/",
     githubUrl: "https://github.com/deepakn-0603/Heart-wise"
   },
   {
