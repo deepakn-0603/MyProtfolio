@@ -71,7 +71,6 @@ export const PROJECTS: Project[] = [
     technologies: ["Python", "Django", "Machine Learning", "React", "Docker", "AWS", "CI/CD"],
     imageUrl: ["/images/heart-wise-A.png", "/images/heart-wise-B.png"],
     liveUrl: "https://heart-wise-eight.vercel.app/",
-    githubUrl: "https://github.com/deepakn-0603/Heart-wise"
   },
   {
     id: "2",
@@ -80,7 +79,6 @@ export const PROJECTS: Project[] = [
     longDescription: "A fully responsive and production-ready portfolio website built to highlight my experience as a full-stack developer. It includes dynamic project listings, categorized skills, and a professional experience section. Designed with a clean UI using React and integrated with scalable architecture practices. The application follows component-based design and is optimized for performance and maintainability.",
     technologies: ["React", "JavaScript", "CSS", "REST API", "Next js"],
     imageUrl: ["/images/portfolio-A.png", "/images/portfolio-B.png", "/images/portfolio-C.png"],
-    githubUrl: "https://github.com/deepakn-0603/MyProtfolio.git",
     liveUrl: "https://deepak-n-portfolio.vercel.app/"
   }
   // {
