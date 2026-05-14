@@ -75,14 +75,6 @@ export function Projects() {
               </p>
               <div className="flex items-center pt-4 border-t border-border/50">
                 <Link
-                  href={project.githubUrl || "#"}
-                  className="inline-flex items-center text-sm font-bold text-primary hover:text-accent transition-colors group/link"
-                >
-                  Project Details
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" />
-                </Link>
-
-                <Link
                   href={project.liveUrl || "#"}
                   className="inline-flex items-center text-sm font-bold text-primary hover:text-accent transition-colors ml-auto group/link"
                 >
