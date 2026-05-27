@@ -49,4 +49,4 @@ The easiest way to deploy is using **Vercel**:
 4. Deploy.
 
 ## AI Content Assistant
-The "AI Project Copywriter" section demonstrates your ability to integrate LLMs into production apps. It uses Genkit flows located in `src/ai/flows`.
+The section demonstrates your ability to integrate LLMs into production apps. It uses Genkit flows located in `src/ai/flows`.
