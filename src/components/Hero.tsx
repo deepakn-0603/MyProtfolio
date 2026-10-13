@@ -11,7 +11,7 @@ export function Hero() {
     <section className="section-padding pt-32 lg:pt-48 flex flex-col lg:flex-row items-center gap-12">
       <div className="flex-1 text-center lg:text-left space-y-6">
         <div className="inline-block px-3 py-1 rounded-full bg-primary/5 text-primary text-xs font-semibold uppercase tracking-wider">
-          Available for new opportunities
+          Immediate Availability for New Opportunities
         </div>
         <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
         Hi , I&apos;m <span className="text-primary" style={{ fontSize: '3.7rem' }}>{USER_INFO.name}</span>

@@ -1,128 +1,121 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { aiGenerateProjectDescription } from "@/ai/flows/ai-generate-project-description";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Sparkles, Loader2, Copy, Check } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { toast } from "@/hooks/use-toast";
+import { starterQuestions, fallbackAnswers } from "@/constants";
+
+type Message = { role: "user" | "assistant"; content: string };
 
 export function AIAssistant() {
-  const [title, setTitle] = useState("");
-  const [tech, setTech] = useState("");
-  const [goals, setGoals] = useState("");
-  const [result, setResult] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const handleGenerate = async () => {
-    if (!title || !tech || !goals) {
-      toast({ title: "Incomplete details", description: "Please fill in all fields." });
-      return;
-    }
-
+  const ask = async (rawQuestion: string) => {
+    const trimmedQuestion = rawQuestion.trim();
+    if (!trimmedQuestion || loading) return;
+    setQuestion("");
+    setMessages((current) => [...current, { role: "user", content: trimmedQuestion }]);
     setLoading(true);
     try {
       const output = await aiGenerateProjectDescription({
-        projectTitle: title,
-        technologies: tech.split(",").map(s => s.trim()),
-        projectGoals: goals,
+        projectTitle: "Deepak's engineering background and portfolio",
+        technologies: ["Backend", "Cloud", "AI", "Heart-Wise", "DocMind AI"],
+        projectGoals: `Answer this recruiter question using the portfolio's available details, including the full architecture and tech stack for DocMind AI and Heart-Wise: ${trimmedQuestion}. Do not invent details.`,
       });
-      setResult(output.generatedDescription);
+      setMessages((current) => [...current, { role: "assistant", content: output.generatedDescription }]);
     } catch (error) {
-      toast({ title: "Error", description: "Failed to generate description. Please try again." });
+      const answer = fallbackAnswers[trimmedQuestion] ??
+        "Deepak is a Software Engineer at Team Geek Solutions with Backend, Cloud, and AI skills. His projects include Heart-Wise and DocMind AI, and he holds the Microsoft Azure AI Developer Associate certification. He is available to join immediately in Bangalore. Please ask a more specific question for additional details.";
+      setMessages((current) => [...current, { role: "assistant", content: answer }]);
     } finally {
       setLoading(false);
     }
   };
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(result);
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    void ask(question);
+  };
+
+  const copyResponse = async (content: string) => {
+    await navigator.clipboard.writeText(content);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
-    toast({ title: "Copied!", description: "Description copied to clipboard." });
   };
 
   return (
-    <section className="section-padding bg-accent/5">
-      <div className="max-w-4xl mx-auto">
-        {/* <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent font-bold text-xs uppercase mb-4">
-            <Sparkles className="w-3 h-3" /> Portfolio Tools
+    <section className="section-padding">
+      <div className="mx-auto max-w-4xl">
+        <div className="mb-8">
+          <p className="mb-3 font-mono text-xs tracking-[0.2em] text-[#4ade80]">05 / AI ASSISTANT</p>
+          <h2 className="text-3xl font-semibold text-white sm:text-4xl">Ask Deepak&apos;s AI</h2>
+          <p className="mt-2 text-white/60">Portfolio &amp; Resume Assistant — ask about engineering experience, projects, or availability.</p>
+        </div>
+
+        <div className="rounded-2xl border border-white/10 bg-[#0f1311] p-5 shadow-xl sm:p-7">
+          <div className="mb-5 flex items-center gap-2 font-mono text-xs text-white/50">
+            <Sparkles className="h-4 w-4 text-[#4ade80]" />
+            <span>RECRUITER QUICK PROMPTS</span>
           </div>
-          <h2 className="text-3xl font-bold mb-4">AI Project Copywriter</h2>
-          <p className="text-muted-foreground">
-            Struggling to describe your work? Use my custom-built AI tool to generate professional, impactful project summaries.
-          </p>
-        </div> */}
+          <div className="mb-6 flex flex-wrap gap-2">
+            {starterQuestions.map((prompt) => (
+              <button
+                key={prompt}
+                type="button"
+                onClick={() => void ask(prompt)}
+                disabled={loading}
+                className="rounded-full border border-white/10 px-3 py-2 text-left text-xs text-white/70 transition hover:border-[#4ade80]/50 hover:text-[#4ade80] disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {prompt}
+              </button>
+            ))}
+          </div>
 
-        {/* <Card className="white-card border-accent/20">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-               Generate compelling descriptions
-            </CardTitle>
-            <CardDescription>Based on your project metadata</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-bold uppercase tracking-wider">Project Title</label>
-                <Input 
-                  placeholder="e.g., E-commerce API" 
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold uppercase tracking-wider">Tech Stack (comma separated)</label>
-                <Input 
-                  placeholder="e.g., Django, Postgres, AWS" 
-                  value={tech}
-                  onChange={(e) => setTech(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-wider">What did this project solve?</label>
-              <Textarea 
-                placeholder="Describe the main goals and outcomes..." 
-                value={goals}
-                onChange={(e) => setGoals(e.target.value)}
-              />
-            </div>
-            
-            <Button 
-              onClick={handleGenerate} 
-              className="w-full btn-accent font-bold"
-              disabled={loading}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  Generating...
-                </>
-              ) : (
-                <>
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  Generate Description
-                </>
-              )}
-            </Button>
-
-            {result && (
-              <div className="mt-8 p-6 bg-white border border-accent/30 rounded-xl relative group">
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Button variant="ghost" size="icon" onClick={copyToClipboard} className="h-8 w-8">
-                    {copied ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
-                  </Button>
+          <div className="mb-5 max-h-96 space-y-4 overflow-y-auto" aria-live="polite">
+            {messages.map((message, index) => (
+              <div key={`${message.role}-${index}`} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div className={`group relative max-w-[90%] rounded-xl border px-4 py-3 ${message.role === "user" ? "border-[#4ade80]/20 bg-[#4ade80]/10 text-white" : "border-white/10 bg-black/20 pr-12 text-white/80"}`}>
+                  <p className="mb-1 font-mono text-[10px] uppercase tracking-wider text-[#4ade80]">{message.role === "user" ? "You" : "Deepak's AI"}</p>
+                  <p className="whitespace-pre-wrap text-sm leading-relaxed">{message.content}</p>
+                  {message.role === "assistant" && (
+                    <button
+                      type="button"
+                      onClick={() => void copyResponse(message.content)}
+                      aria-label="Copy response"
+                      className="absolute right-2 top-2 rounded p-1.5 text-white/50 transition hover:text-[#4ade80]"
+                    >
+                      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                    </button>
+                  )}
                 </div>
-                <p className="text-primary italic leading-relaxed">&quot;{result}&quot;</p>
+              </div>
+            ))}
+            {loading && (
+              <div className="flex items-center gap-2 text-sm text-white/50">
+                <Loader2 className="h-4 w-4 animate-spin text-[#4ade80]" /> Thinking...
               </div>
             )}
-          </CardContent>
-        </Card> */}
+          </div>
+
+          <form onSubmit={handleSubmit} className="flex gap-2">
+            <Input
+              value={question}
+              onChange={(event) => setQuestion(event.target.value)}
+              placeholder="Ask about Deepak's experience, projects, or availability..."
+              aria-label="Ask Deepak's AI a question"
+              className="h-12 border-white/10 bg-black/30 text-white placeholder:text-white/35 focus-visible:ring-[#4ade80]"
+              disabled={loading}
+            />
+            <Button type="submit" disabled={loading || !question.trim()} className="h-12 shrink-0 bg-[#4ade80] px-4 font-semibold text-black hover:bg-[#4ade80]/90">
+              {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <><Sparkles className="mr-2 h-4 w-4" />Ask AI</>}
+            </Button>
+          </form>
+        </div>
       </div>
     </section>
   );
