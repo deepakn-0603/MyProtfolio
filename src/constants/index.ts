@@ -120,11 +120,11 @@ export const starterQuestions = [
 
 export const fallbackAnswers: Record<string, string> = {
   [starterQuestions[0]]:
-    "Deepak is a Software Engineer at Team Geek Solutions with skills across Backend, Cloud, and AI. His work on Heart-Wise and DocMind AI, together with his Microsoft Azure AI Developer Associate certification, gives him relevant experience for these roles. He is available to join immediately in Bangalore.",
+    "Deepak is a Software Engineer at Team Geek Solutions with skills across Backend, Cloud, and AI.\n\n His work on Heart-Wise and DocMind AI, together with his Microsoft Azure AI Developer Associate certification, gives him relevant experience for these roles. He is available to join immediately in Bangalore.",
   [starterQuestions[1]]:
-    "Deepak's profile highlights a 40% reduction in CPU usage at Team Geek Solutions. The implementation details are not available in the supplied portfolio information, so please ask Deepak for the specific optimization and measurement context.",
+    "Deepak's profile highlights a 40% reduction in CPU usage at Team Geek Solutions. The implementation details are not available in the supplied portfolio information,\n\n so please ask Deepak for the specific optimization and measurement context.",
   [starterQuestions[2]]:
-    "DocMind AI:** Frontend built with React.js; Backend with Django and MongoDB; AI Pipeline powered by LangChain, Pinecone, Hugging Face Transformers, and AWS DynamoDB.\n\n**Heart-Wise:** Frontend with React.js; Backend with Django and MongoDB; Machine Learning via scikit-learn. It is deployed live on Vercel.",
+    "DocMind AI:Frontend built with React.js; Backend with Django and MongoDB; AI Pipeline powered by LangChain, Pinecone, Hugging Face Transformers, and AWS DynamoDB.\n\nHeart-Wise: Frontend with React.js; Backend with Django and MongoDB; Machine Learning via scikit-learn. It is deployed live on Vercel.",
   [starterQuestions[3]]:
-    "Deepak holds the Microsoft Azure AI Developer Associate certification. The portfolio information does not include a credential ID or verification link, so request the certificate or its official verification details directly from him.",
+    "Deepak holds the Microsoft Azure AI Developer Associate certification.\n\n The portfolio information does not include a credential ID or verification link, so request the certificate or its official verification details directly from him.",
 };
