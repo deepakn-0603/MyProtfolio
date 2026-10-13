@@ -71,6 +71,8 @@ export const PROJECTS_DATA = [
       "Developed machine learning classification models using scikit-learn in a Python environment, achieving high accuracy and precision.",
       "Integrated Genkit to generate interpretable AI medical explanations, utilizing structured schema validation for high reliability.",
     ],
+    architecture: "Frontend: React.js | Backend: Django, MongoDB | Machine Learning: scikit-learn for predictive modeling | Deployment: Vercel (Live URL: https://heart-wise-eight.vercel.app/).",
+    link: "https://heart-wise-eight.vercel.app/",
     tags: ["Python", "Render", "PostgreSQL", "Docker", "scikit-learn", "Genkit"],
     kind: "heart",
   },
@@ -82,6 +84,7 @@ export const PROJECTS_DATA = [
       "Designed an AI-powered document platform featuring real-time background processing to initiate OCR and embedding ingestion immediately after file upload.",
       "Integrated Pinecone vector search with Hugging Face embeddings, securing user-level access via JWT authentication and RBAC.",
     ],
+    architecture: "Frontend: React.js | Backend: Django, MongoDB | AI & Data Pipeline: LangChain, Pinecone (Vector DB), Hugging Face Transformers, AWS DynamoDB.",
     tags: ["Python", "React.js", "FastAPI", "LangChain", "Pinecone", "Hugging Face"],
     kind: "ai",
   },
@@ -106,4 +109,22 @@ export const CERTIFICATION_DATA = {
 export const metadata: Metadata = {
   title: 'Narayana Deepak | Software Engineer',
   description: 'Portfolio of Narayana Deepak, a software engineer building scalable backend systems and cloud infrastructure.',
+};
+
+export const starterQuestions = [
+  "Why is Deepak a strong fit for Backend & Cloud roles?",
+  "How did he cut CPU usage by 40% at Team Geek Solutions?",
+  "Explain the technical architecture and tech stack behind DocMind AI and Heart-Wise.",
+  "Can customers/recruiters verify his Azure AI certification?",
+];
+
+export const fallbackAnswers: Record<string, string> = {
+  [starterQuestions[0]]:
+    "Deepak is a Software Engineer at Team Geek Solutions with skills across Backend, Cloud, and AI. His work on Heart-Wise and DocMind AI, together with his Microsoft Azure AI Developer Associate certification, gives him relevant experience for these roles. He is available to join immediately in Bangalore.",
+  [starterQuestions[1]]:
+    "Deepak's profile highlights a 40% reduction in CPU usage at Team Geek Solutions. The implementation details are not available in the supplied portfolio information, so please ask Deepak for the specific optimization and measurement context.",
+  [starterQuestions[2]]:
+    "DocMind AI:** Frontend built with React.js; Backend with Django and MongoDB; AI Pipeline powered by LangChain, Pinecone, Hugging Face Transformers, and AWS DynamoDB.\n\n**Heart-Wise:** Frontend with React.js; Backend with Django and MongoDB; Machine Learning via scikit-learn. It is deployed live on Vercel.",
+  [starterQuestions[3]]:
+    "Deepak holds the Microsoft Azure AI Developer Associate certification. The portfolio information does not include a credential ID or verification link, so request the certificate or its official verification details directly from him.",
 };

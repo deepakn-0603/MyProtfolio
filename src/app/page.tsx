@@ -14,6 +14,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { Typewriter } from "@/components/Typewriter";
+import { AIAssistant } from "@/components/AIAssistant";
 import { PROJECTS_DATA, SKILLS_DATA, EXPERIENCE_DATA, CERTIFICATION_DATA, SOCIAL_LINKS, HERO_DATA, NAV_LINKS } from "@/constants";
 
 const CONTENT_LAYOUT = {
@@ -40,12 +41,14 @@ function Header() {
         </a>
         <div className="d-none d-md-flex align-items-center gap-4">
           {NAV_LINKS.map(({ label, href }) => <a className="nav-link" href={href} key={href}>{label}</a>)}
+          <a className="nav-link" href="#ai-assistant">AI Assistant ✦</a>
           <a className="nav-cta" href="#contact">Let&apos;s talk <ArrowUpRight size={14} /></a>
         </div>
         <details className="mobile-nav d-md-none">
           <summary aria-label="Open navigation">Explore</summary>
           <div className="mobile-nav-menu">
             {NAV_LINKS.map(({ mobileLabel, href }) => <a href={href} key={href}>{mobileLabel}</a>)}
+            <a href="#ai-assistant">AI Assistant ✦</a>
             <a href="#contact">Contact</a>
           </div>
         </details>
@@ -348,7 +351,27 @@ export default function Home() {
       <Projects />
       <TechnicalArsenal />
       <Experience />
+      <section id="ai-assistant" className="ai-assistant-section" style={{ scrollMarginTop: "6rem" }}>
+        <div className="container section-container mx-auto" style={CONTENT_LAYOUT}>
+          <SectionHeading eyebrow="05 / Interactive AI Terminal" title="Ask Deepak's AI." />
+          <AIAssistant />
+        </div>
+      </section>
       <Footer />
+      <button
+        type="button"
+        className="ai-quick-launch"
+        onClick={() => {
+          const section = document.getElementById("ai-assistant");
+          const input = section?.querySelector<HTMLElement>("input, textarea, [contenteditable='true']");
+          section?.scrollIntoView({ behavior: "smooth", block: "start" });
+          window.setTimeout(() => input?.focus({ preventScroll: true }), 450);
+        }}
+        aria-label="Scroll to and focus the AI assistant"
+      >
+        <span className="ai-quick-launch-dot" aria-hidden="true" />
+        Ask Deepak&apos;s AI ✦
+      </button>
       <style jsx global>{`
         :global(html),
         :global(body) {
@@ -374,6 +397,46 @@ export default function Home() {
         .portfolio-shell > section > :not(.ambient-glow) {
           position: relative;
           z-index: 1;
+        }
+        .ai-quick-launch {
+          position: fixed;
+          right: 1.5rem;
+          bottom: 1.5rem;
+          z-index: 50;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.65rem;
+          padding: 0.85rem 1.1rem;
+          border: 1px solid rgba(140, 255, 112, 0.42);
+          border-radius: 999px;
+          background: rgba(12, 16, 14, 0.94);
+          color: #dfffd6;
+          box-shadow: 0 8px 28px rgba(0, 0, 0, 0.42), 0 0 18px rgba(140, 255, 112, 0.12);
+          font-family: monospace;
+          font-size: 0.82rem;
+          cursor: pointer;
+          backdrop-filter: blur(12px);
+        }
+        .ai-quick-launch:hover,
+        .ai-quick-launch:focus-visible {
+          border-color: #8cff70;
+          box-shadow: 0 0 22px rgba(140, 255, 112, 0.24);
+          outline: none;
+        }
+        .ai-quick-launch-dot {
+          width: 0.5rem;
+          height: 0.5rem;
+          flex: 0 0 auto;
+          border-radius: 50%;
+          background: #8cff70;
+          box-shadow: 0 0 10px rgba(140, 255, 112, 0.8);
+          animation: ai-dot-pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes ai-dot-pulse {
+          50% { opacity: 0.45; box-shadow: 0 0 3px rgba(140, 255, 112, 0.4); }
+        }
+        @media (max-width: 575.98px) {
+          .ai-quick-launch { right: 1rem; bottom: 1rem; }
         }
         .ambient-glow {
           position: absolute;

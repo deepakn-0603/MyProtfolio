@@ -180,8 +180,8 @@ a:hover {
 .diagram-dot {
   position: relative;
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 12px;
+  height: 13px;
   flex: 0 0 auto;
   border-radius: 50%;
   background: var(--portfolio-green);
@@ -916,4 +916,29 @@ a:hover {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Hide bulky scrollbars inside the AI chat container and prevent blinking */
+.ai-chat-scroll,
+[class*="overflow-y-auto"] {
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(74, 222, 128, 0.2) transparent;
+  scrollbar-gutter: stable;
+}
+
+.ai-chat-scroll::-webkit-scrollbar,
+[class*="overflow-y-auto"]::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ai-chat-scroll::-webkit-scrollbar-track,
+[class*="overflow-y-auto"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ai-chat-scroll::-webkit-scrollbar-thumb,
+[class*="overflow-y-auto"]::-webkit-scrollbar-thumb {
+  background: rgba(74, 222, 128, 0.2);
+  border-radius: 9999px;
 }

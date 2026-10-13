@@ -13,6 +13,7 @@ import {z} from 'genkit';
 const AIGenerateProjectDescriptionInputSchema = z.object({
   projectTitle: z.string().describe('The title of the project.'),
   technologies: z.array(z.string()).describe('A list of technologies used in the project, e.g., ["React", "Django", "PostgreSQL"]').min(1),
+  projectArchitecture: z.string().optional().describe('The technical architecture and integration of the project components.'),
   projectGoals: z.string().describe('The main goals or purpose of the project.'),
   existingDescription: z.string().optional().describe('An optional existing project description to refine.'),
 });
@@ -36,6 +37,9 @@ const prompt = ai.definePrompt({
 Here is the project information:
 Project Title: {{{projectTitle}}}
 Technologies Used: {{#each technologies}}- {{{this}}}\n{{/each}}
+{{#if projectArchitecture}}
+Technical Architecture: {{{projectArchitecture}}}
+{{/if}}
 Project Goals: {{{projectGoals}}}
 
 {{#if existingDescription}}
@@ -44,6 +48,8 @@ Existing Description: {{{existingDescription}}}
 {{else}}
 Generate a compelling and concise project description based on the provided information, focusing on the project's purpose, the technologies used, and its key features or outcomes.
 {{/if}}
+
+When answering questions about DocMind AI or Heart-Wise, use the provided architecture details to give a highly technical, engineering-focused explanation of how the frontend, backend, and machine learning components integrate.
 
 The description should be professional, engaging, and suitable for a developer with 1+ years of experience. Aim for 3-5 sentences.`,
 });
